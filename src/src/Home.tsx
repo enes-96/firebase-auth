@@ -6,7 +6,7 @@ const auth = getAuth(app);
 
 const Home = () => {
   const [user, setUser] = useState(null);
-
+  console.log(user);
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setUser(user); // Update the user state when authentication state changes
@@ -27,8 +27,6 @@ const Home = () => {
       {user && (
         <div>
           <p>Email: {user.email}</p>
-          <p>UID: {user.uid}</p>
-          {/* Add more user details here as needed */}
         </div>
       )}
     </div>
