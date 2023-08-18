@@ -22,7 +22,7 @@ const Home = () => {
       <h1>
         {user
           ? `Welcome, ${user.displayName || "User"}!`
-          : "You are logged in!"}
+          : "You are succesfully logged in!"}
       </h1>
       {user && (
         <div>
