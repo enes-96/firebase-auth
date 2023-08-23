@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -20,6 +20,9 @@ const LoginPage = () => {
     try {
       setIsLoading(true);
       await signInWithEmailAndPassword(auth, email, password);
+      // After successful login
+      window.history.replaceState(null, "", "/dashboard"); // Replace with the appropriate URL
+
       setIsLoading(false);
       console.log("User logged:", email);
       navigate("/home");
@@ -33,6 +36,9 @@ const LoginPage = () => {
     try {
       setIsLoading(true);
       await createUserWithEmailAndPassword(auth, email, password);
+      // After successful login
+      window.history.replaceState(null, "", "/dashboard"); // Replace with the appropriate URL
+
       setIsLoading(false);
       console.log("User registered:", email);
       navigate("/home");

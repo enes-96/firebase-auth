@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import app from "./firebase";
+import { useNavigate } from "react-router-dom";
 
 const auth = getAuth(app);
 
 const Home = () => {
   const [user, setUser] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -20,7 +22,7 @@ const Home = () => {
   const handleLogout = async () => {
     try {
       await signOut(auth);
-      // Redirect or perform any necessary actions after logout
+      navigate("/");
     } catch (error) {
       console.error("Error logging out:", error);
     }
