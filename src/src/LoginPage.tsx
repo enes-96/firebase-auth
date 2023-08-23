@@ -21,10 +21,8 @@ const LoginPage = () => {
       setIsLoading(true);
       await signInWithEmailAndPassword(auth, email, password);
       // After successful login
-      window.history.replaceState(null, "", "/dashboard"); // Replace with the appropriate URL
-
+      window.history.replaceState(null, "", "/"); // Replace with the appropriate URL
       setIsLoading(false);
-      console.log("User logged:", email);
       navigate("/home");
     } catch (error) {
       setError("Invalid email or password");
@@ -37,7 +35,7 @@ const LoginPage = () => {
       setIsLoading(true);
       await createUserWithEmailAndPassword(auth, email, password);
       // After successful login
-      window.history.replaceState(null, "", "/dashboard"); // Replace with the appropriate URL
+      window.history.replaceState(null, "", "/"); // Replace with the appropriate URL
 
       setIsLoading(false);
       console.log("User registered:", email);
@@ -70,14 +68,14 @@ const LoginPage = () => {
       {error && <p className="text-red-500 mb-2">{error}</p>}
       <div className="flex gap-4">
         <button
-          className="bg-blue-500 text-white py-2 px-6 rounded-md"
+          className={`bg-blue-500 text-white py-2 px-6 rounded-md disabled:opacity-50`}
           onClick={handleLogin}
           disabled={isLoading}
         >
           {isLoading ? "Logging in..." : "Login"}
         </button>
         <button
-          className="bg-green-500 text-white py-2 px-6 rounded-md"
+          className="bg-green-500 text-white py-2 px-6 rounded-md disabled:opacity-50"
           onClick={handleRegistration}
           disabled={isLoading}
         >
