@@ -21,7 +21,7 @@ const LoginPage = () => {
       setIsLoading(true);
       await signInWithEmailAndPassword(auth, email, password);
       // After successful login
-      window.history.replaceState(null, "", "/"); // Replace with the appropriate URL
+      window.history.replaceState(null, "", "/");
       setIsLoading(false);
       navigate("/home");
     } catch (error) {
@@ -34,8 +34,7 @@ const LoginPage = () => {
     try {
       setIsLoading(true);
       await createUserWithEmailAndPassword(auth, email, password);
-      // After successful login
-      window.history.replaceState(null, "", "/"); // Replace with the appropriate URL
+      window.history.replaceState(null, "", "/"); //
 
       setIsLoading(false);
       console.log("User registered:", email);
